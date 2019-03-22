@@ -1,13 +1,21 @@
 import numpy as np
-import cv2
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+# import cv2
+# import matplotlib.pyplot as plt
+# import matplotlib.image as mpimg
 
 import os
 
 CI = os.listdir("camera_cal/")
 CI.sort()
 print(CI)
+
+### read files in numerical order
+nums = [x.replace("calibration", "") for x in CI]  ## remove prefix
+nums = [int(x.split(".")[0]) for x in nums]  ## remove prefix
+nums.sort()
+new_names = ["calibration" + str(x) + ".jpg" for x in nums]
+print(new_names)
+
 nx = 9
 ny = 5
 
