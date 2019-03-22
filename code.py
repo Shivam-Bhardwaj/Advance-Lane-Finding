@@ -9,7 +9,7 @@ CI = os.listdir("camera_cal/")
 CI.sort()
 print(CI)
 nx = 9
-ny = 5
+ny = 6
 
 img = cv2.imread("camera_cal/"+CI[1])
 
