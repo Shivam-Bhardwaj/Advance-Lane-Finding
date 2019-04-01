@@ -591,9 +591,10 @@ past_good_left_lines = []
 running_mean_difference_between_lines = 0
 
 output = 'video_output/project_video_output.mp4'
-clip1 = VideoFileClip("video_input/project_video.mp4")
+clip1 = VideoFileClip("video_input/project_video.mp4").subclip(0, 6)
+# clip1 = VideoFileClip("video_input/project_video.mp4")
 white_clip = clip1.fl_image(pipeline_final)  # NOTE: this function expects color images!!
-white_clip.write_videofile(output, threads=12, audio=False, verbose=False)
+white_clip.write_videofile(output, threads=12, audio=False, verbose=True)
 
 polyfit_left = None
 polyfit_right = None
@@ -602,8 +603,8 @@ past_good_left_lines = []
 running_mean_difference_between_lines = 0
 
 output = 'video_output/challenge_video_output.mp4'
-# clip1 = VideoFileClip("video_input/challenge_video.mp4").subclip(3,9)
-clip1 = VideoFileClip("video_input/challenge_video.mp4")
+clip1 = VideoFileClip("video_input/challenge_video.mp4").subclip(3, 9)
+# clip1 = VideoFileClip("video_input/challenge_video.mp4")
 white_clip = clip1.fl_image(pipeline_final)  # NOTE: this function expects color images!!
 white_clip.write_videofile(output, threads=12, audio=False, verbose=False)
 
@@ -615,7 +616,7 @@ past_good_left_lines = []
 running_mean_difference_between_lines = 0
 
 output = 'video_output/harder_challenge_video_output.mp4'
-# clip1 = VideoFileClip("video_input/harder_challenge_video.mp4").subclip(0,6)
-clip1 = VideoFileClip("video_input/harder_challenge_video.mp4")
+clip1 = VideoFileClip("video_input/harder_challenge_video.mp4").subclip(0, 6)
+# clip1 = VideoFileClip("video_input/harder_challenge_video.mp4")
 white_clip = clip1.fl_image(pipeline_final)  # NOTE: this function expects color images!!
-white_clip.write_videofile(output, threads=12, audio=False, verbose=True)
+white_clip.write_videofile(output, threads=12, audio=False, verbose=False)
