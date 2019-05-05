@@ -35,12 +35,20 @@ The steps of this project are the following:
 ## Prerequisites
 
 - pip 
-- python 3
-- virtual environment
 
-## Install instructions
+- Python 3
 
-`open terminal`
+- Virtual environment
+
+  ```bash
+  $ sudo apt update
+  $ sudo apt install python3-pip
+  $ sudo pip3 install virtualenv 
+  ```
+
+## Install instructions - Linux Only
+
+- `open terminal`
 
 ```bash
 $ git clone https://github.com/Shivam-Bhardwaj/AdvanceLaneFinding.git
@@ -51,7 +59,7 @@ $ pip install -r requirements.txt
 $ jupyter notebook
 ```
 
-`open code.ipnyb`
+- `open code.ipnyb`
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
