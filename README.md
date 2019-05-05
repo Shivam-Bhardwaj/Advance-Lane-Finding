@@ -56,7 +56,7 @@ $ virtualenv --no-site-packages -p python3 venv
 $ source venv/bin/activate
 $ cd AdvanceLaneFinding
 $ pip install -r requirements.txt
-$ jupyter notebook
+$ jupyter notebook 
 ```
 
 - `open code.ipnyb`
