@@ -34,7 +34,7 @@ The steps of this project are the following:
 
 ## Prerequisites
 
-- pip 
+- Pip 
 
 - Python 3
 
