@@ -168,8 +168,6 @@ Here's a [link to my video result](./project_video.mp4)
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
-- 
-
 [//]: #	"Image References"
 [image1]: ./camera_cal/calibration1.jpg	"Undistorted"
 [image2]: ./test_images/test1.jpg	"Road Transformed"
