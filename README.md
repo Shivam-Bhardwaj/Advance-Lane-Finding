@@ -258,9 +258,11 @@ Everything mentioned above is boxed in a function called `pipeline_final(img)` t
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+##### [Original project video](./video_output_final/project_video_output.mp4)
 
-Here's a [link to my video result](./project_video.mp4)
+##### [Challenge video](./video_output_final/challenge_video_output.mp4)
+
+##### [Harder Challenge video](./video_output_final/harder_challenge_video_output.mp4)
 
 ------
 
