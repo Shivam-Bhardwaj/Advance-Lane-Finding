@@ -266,11 +266,22 @@ Everything mentioned above is boxed in a function called `pipeline_final(img)` t
 To begin with I would like to thank Udacity team for compiling everything in such an amazing tutorial. Following are my take on the overall project.
 
 - When I begun this project. I had rough idea of what to do from the previous lane finding project, however this one is far more robust than that. However, since this is still just OpenCV based, it requires a lots of parameter tweaking to get a satisfactory result.
+
 - The camera distortion looks like have no effect on the final video output. This might be because the videos are taken from a different camera than the camera used to take the chess board images.
+
 - **NOTE** there is difference between importing the image from OpenCV and MatplotLib. This was evident while saving the images, I wasted a lot of time why my images were coming as if I was color blind :p
+
 - The perspective transform is more or less hard-coded which made the code less robust.
+
 - The parameters like window_half_width and finding the lane in next from in +/- 40 pixels are the main cause of failure of the code in the harder challenge video. This is due to the fact that the lane curvature is suddenly going over 45 degrees, which the system cannot adjust for. One way to get the results is to use the Convolution based approach as explained in one of the lectures. 
+
 - However, this is also caused by the fact that I am averaging the output over 12 frames. Which makes the code less susceptible for sudden changes but, causes the system to fail in sharp turns as in harder challenge.
+
+- One more cause of failure is that the lanes in the harder challenge almost bend to 90 degrees; the Sobel filter that I have applied works only for lanes that are more or less vertical. This is shown in the figure below:
+
+  ![Harder challenge video](assets/image-1557129905441.png)
+
+  as you can see that the turn is almost horizontal, and the Sobel filter **should** fail in such case.
 
 [//]: #	"Image References"
 [image1]: ./camera_cal/calibration1.jpg	"Undistorted"
