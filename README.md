@@ -212,7 +212,11 @@ window_height = np.int(num_rows/num_windows)
 window_half_width = 70
 ```
 
+A sliding window search is done per window in vertical direction. If there is a significant change in the sum of pixels in vertical direction the bounding box`(represented in green)` is shifter per consecutive window. Till it is done on the whole image. 
 
+**NOTE: This is only performed on first frame.**
+
+![](assets/image-1557126862324.png)
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
