@@ -56,7 +56,7 @@ $ pip install -r requirements.txt
 $ jupyter notebook
 ```
 
-`open code.ipnyb`
+`open FinalCode.ipnyb`
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -142,6 +142,7 @@ To obtain the perspective transform OpenCV's `cv2.warpPerspective(thresholded, M
 
 ```python
 # Vertices extracted manually for performing a perspective transform
+
 bottom_left = [200,720]
 bottom_right = [1110, 720]
 top_left = [570, 470]
@@ -154,6 +155,7 @@ source = np.float32([bottom_left,bottom_right,top_right,top_left])
 
 ```python
 # Destination points are chosen such that straight lanes appear more or less parallel in the transformed image.
+
 bottom_left = [320,720]
 bottom_right = [920, 720]
 top_left = [320, 1]
@@ -178,6 +180,39 @@ After performing color thresholding:
 ![](assets/image2-1557125794339.png)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+
+To get the final second degree polynomial for the lanes, I had to perform multiple steps.
+
+To begin with, a histogram was created from the bottom half of the image to get the lane starting as shown below.
+
+```python
+histogram = np.sum(warped[warped.shape[0]//2:,:], axis=0)
+
+# Peak in the first half indicates the likely position of the left lane
+
+half_width = np.int(histogram.shape[0]/2)
+leftx_base = np.argmax(histogram[:half_width])
+
+# Peak in the second half indicates the likely position of the right lane
+
+rightx_base = np.argmax(histogram[half_width:]) + half_width
+
+plt.plot(histogram)
+print("The base of the lines are for LEFT LINE:",leftx_base,"pixels & for Right Line:", rightx_base, "pixels")
+```
+
+![Histogram](assets/image.png)
+
+Then the whole image was divided into 10 windows to perform a sliding window search.
+
+```python
+num_windows = 10
+num_rows = warped.shape[0]
+window_height = np.int(num_rows/num_windows)
+window_half_width = 70
+```
+
+
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
