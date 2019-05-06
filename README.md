@@ -113,39 +113,69 @@ Using the distortion correction parameters obtained above I used the follwing li
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+The section **Declaring functions important for Gradients and Color transforms** has the functions for performing different image transforms and masks. The code significantly self explanatory. However, they are explained briefly below:
 
-![alt text][image3]
+- `get_thresholded_image(img)` Function to do the undistortion, conversion to grayscale and creating a mask based on pixel threshold
+
+  - `cv2.undistort(img, cameraMatrix, distortionCoeffs, None, cameraMatrix)`
+  - `cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)`
+  -  `mask = np.zeros_like(color_combined)`
+
+- `abs_sobel_thresh(gray, orient='x', thresh_min=0, thresh_max=255)` 
+
+  - ```python
+     if orient == 'x':
+            sobel = cv2.Sobel(gray, cv2.CV_64F, 1, 0)
+        else:
+            sobel = cv2.Sobel(gray, cv2.CV_64F, 0, 1)
+    ```
+
+- `dir_threshold(gray, sobel_kernel=3, thresh=(0, np.pi/2))`
+
+The following image is an example when the above filters are applied.
+
+![](assets/Screenshot from 2019-05-06 02-45-18.png)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+To obtain the perspective transform OpenCV's `cv2.warpPerspective(thresholded, M, img_size , flags=cv2.INTER_LINEAR)` function is used. For which the source and destination points are chosen as explained below.
 
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+# Vertices extracted manually for performing a perspective transform
+bottom_left = [200,720]
+bottom_right = [1110, 720]
+top_left = [570, 470]
+top_right = [722, 470]
+```
+
+```python
+source = np.float32([bottom_left,bottom_right,top_right,top_left])
+```
+
+```python
+# Destination points are chosen such that straight lanes appear more or less parallel in the transformed image.
+bottom_left = [320,720]
+bottom_right = [920, 720]
+top_left = [320, 1]
+top_right = [920, 1]
 ```
 
 This resulted in the following source and destination points:
 
-|  Source   | Destination |
-| :-------: | :---------: |
-| 585, 460  |   320, 0    |
-| 203, 720  |  320, 720   |
-| 1127, 720 |  960, 720   |
-| 695, 460  |   960, 0    |
+| Point        |  Source   | Destination |
+| ------------ | :-------: | :---------: |
+| bottom_left  |  200,720  |   320,720   |
+| bottom_right | 1110, 720 |  920, 720   |
+| top_left     | 570, 470  |   320, 1    |
+| top_right    | 722, 470  |   920, 1    |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 ![alt text][image4]
+
+After performing color thresholding:
+
+![](assets/Screenshot from 2019-05-06 02-50-38.png)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
