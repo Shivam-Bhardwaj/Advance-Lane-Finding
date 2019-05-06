@@ -277,11 +277,19 @@ To begin with I would like to thank Udacity team for compiling everything in suc
 
 - However, this is also caused by the fact that I am averaging the output over 12 frames. Which makes the code less susceptible for sudden changes but, causes the system to fail in sharp turns as in harder challenge.
 
-- One more cause of failure is that the lanes in the harder challenge almost bend to 90 degrees; the Sobel filter that I have applied works only for lanes that are more or less vertical. This is shown in the figure below:
+- One more cause of failure is that the lanes in the harder challenge almost bend to 90 degrees; the Sobel filter that I have applied works only for lanes that are more or less vertical. This is shown in the figure below: 
+  **As you can see that the turn is almost horizontal, and the Sobel filter should fail in such case.**
 
   ![Harder challenge video](assets/image-1557129905441.png)
 
-  as you can see that the turn is almost horizontal, and the Sobel filter **should** fail in such case.
+The code was tested on the following specifications
+
+- **CPU:** `Intel(R) Core(TM) i9-8950HK CPU @ 4.8 Ghz`
+- **GPU:** `Nvidia GeForce GTX 1050 Ti Mobile`
+- **OS:** `Ubuntu 16.04.6 LTS (Xenial Xerus)` 
+- **Kernal:** `4.15.0-48-generic`
+
+To get a frame rate of ~11 FPS (without distortion correction)
 
 [//]: #	"Image References"
 [image1]: ./camera_cal/calibration1.jpg	"Undistorted"
