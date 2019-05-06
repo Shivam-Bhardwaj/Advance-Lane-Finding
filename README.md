@@ -1,3 +1,8 @@
+---
+typora-copy-images-to: assets
+typora-root-url: assets
+---
+
 ## Advanced Lane Finding using OpenCV
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive) <img src="https://engineering.nyu.edu/sites/default/files/2019-01/tandon_long_color.png" alt="NYU Logo" width="130" height="whatever">
 
@@ -97,7 +102,7 @@ Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be 
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![](/home/shivam/AdvanceLaneFinding/assets/image1.png)
+![](/image1-1557120319101.png)
 
 ### Pipeline (single images)
 
