@@ -63,11 +63,11 @@ $ jupyter notebook
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.    
 
-The README.md file is an extensive writeup of the project. It includes the code folder architecture, resources, test output, Jupyter Notebook etc. Please contact 
+The given README.md file is an extensive writeup of the project. It includes the code folder architecture, resources, test output, Jupyter Notebook etc. For any questions, please contact 
 
 Shivam Bhardwaj 
 
- [LinkedIn](<https://www.linkedin.com/in/shivamnyu/>) [Instagram](https://www.instagram.com/lazy.shivam/) [Facebook](<https://www.facebook.com/shivambhardwaj2008>) 
+ [LinkedIn](<https://www.linkedin.com/in/shivamnyu/>) [Instagram](https://www.instagram.com/lazy.shivam/) [Facebook](<https://www.facebook.com/shivambhardwaj2008>) [Github](https://github.com/Shivam-Bhardwaj)
 
 Mail to shivam.bhardwaj@nyu.edu
 
