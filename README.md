@@ -248,13 +248,11 @@ def measure_radius_of_curvature(x_values):
     return curverad
 ```
 
-
-
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+Everything mentioned above is boxed in a function called `pipeline_final(img)` that takes in an image and  perform the lane detection, as shown below:
 
-![alt text][image6]
+![Final Image test](assets/image-1557128052550.png)
 
 ------
 
