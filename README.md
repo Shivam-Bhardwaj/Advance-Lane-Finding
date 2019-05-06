@@ -1,6 +1,6 @@
 ---
 typora-copy-images-to: assets
-typora-root-url: assets
+
 ---
 
 ## Advanced Lane Finding using OpenCV
@@ -102,7 +102,7 @@ Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be 
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![](/image1-1557120319101.png)
+![Distorted vs undistorted image](assets/image1-1557120372283.png)
 
 ### Pipeline (single images)
 
