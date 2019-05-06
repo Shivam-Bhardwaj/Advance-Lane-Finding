@@ -218,13 +218,23 @@ A sliding window search is done per window in vertical direction. If there is a 
 
 ![](assets/image-1557126862324.png)
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Based on the center of the bounding boxes,  `np.polyfit(right_y, right_x, 2)` is executed to get the second order polynomial function for the **first frame** as shown below.
 
 ![alt text][image5]
 
+For the consecutive frames the lane is searched only in  `+/- 40 pixels`, as shown below.
+
+![](assets/image-1557127353856.png)
+
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+The radius is computed using the following formula
+
+![](assets/r-1557127541668.png)
+
+The following code performs the calculation of radius.
+
+
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
