@@ -97,14 +97,14 @@ Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be 
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![](/home/shivam/AdvanceLaneFinding/assets/image1.png)
+![](/assets/image1.png)
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
 Using the distortion correction parameters obtained above I used the follwing line to get an undistorted image shown below:
-![](/home/shivam/AdvanceLaneFinding/assets/image2.png)
+![](/assets/image2.png)
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
